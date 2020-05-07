@@ -24,6 +24,9 @@
 
 #bottom {
     height: 544px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 #bottom > div {
@@ -40,7 +43,7 @@
 #side {
     width: 240px;
     height: 544px;
-    margin-left: 32px;
+    margin-left: auto;
     display: inline-flex;
     flex-direction: column;
     justify-content: flex-start;

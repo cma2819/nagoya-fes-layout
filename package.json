@@ -1,0 +1,61 @@
+{
+  "name": "nagoya",
+  "version": "0.0.0",
+  "description": "NodeCG layout for Nagoya RTA Online Fes.",
+  "homepage": "",
+  "author": {
+    "name": "poshi",
+    "email": "potadig.ashnerd.zino@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "dashboardPanels": [
+      {
+        "name": "comment",
+        "title": "Comment",
+        "file": "comment.html",
+        "headerColor": "#525F78",
+        "width": 2
+      }
+    ],
+    "graphics": [
+      {
+        "file": "standby/index.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "game/standard_solo/index.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "game/wide_solo/index.html",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "mount": [
+        {
+            "directory": "common",
+            "endpoint": "common"
+        }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.5.0"
+  }
+}

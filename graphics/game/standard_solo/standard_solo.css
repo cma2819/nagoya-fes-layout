@@ -1,3 +1,7 @@
+body {
+    padding: 16px 32px;
+}
+
 #top {
     width: auto;
     margin-bottom: 16px;
@@ -24,6 +28,9 @@
 
 #bottom {
     height: 544px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 #bottom > div {
@@ -33,14 +40,14 @@
 #video-place {
     background-color: rgba(32, 64, 128, 50%);
     height: 544px;
-    width: calc(544px / 9 * 16);
+    width: calc(544px / 3 * 4);
     display: inline-block;
 }
 
 #side {
-    width: 240px;
+    width: 280px;
     height: 544px;
-    margin-left: 32px;
+    margin-left: auto;
     display: inline-flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -53,6 +60,7 @@
 }
 
 .label {
+    font-size: 1.2em;
     text-align: left;
 }
 
@@ -61,13 +69,13 @@
 }
 
 #runner-name {
-    font-size: 1.8em;
-    margin-top: -0.3em;
+    font-size: 2em;
 }
 
 #runner-id {
+    font-size: 1.2em;
     border-bottom: 2px solid white;
-    margin-top: -0.4em;
+    margin-top: -0.6em;
 }
 
 #time-info {
@@ -82,7 +90,7 @@
 }
 
 #timer {
-    font-size: 3.2em;
+    font-size: 3.6em;
 }
 
 #est-label {
@@ -90,5 +98,5 @@
 }
 
 #est {
-    font-size: 2.4em;
+    font-size: 2.8em;
 }

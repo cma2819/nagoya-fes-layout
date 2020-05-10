@@ -23,10 +23,10 @@
 }
 
 #bottom {
-    height: 544px;
+    height: 500px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 #bottom > div {
@@ -35,14 +35,13 @@
 
 #video-place {
     background-color: rgba(32, 64, 128, 50%);
-    height: 544px;
-    width: calc(544px / 9 * 16);
-    display: inline-block;
+    height: calc(726px / 16 * 9);
+    width: 726px;
 }
 
 #side {
-    width: 240px;
-    height: 544px;
+    width: 400px;
+    height: 480px;
     margin-left: auto;
     display: inline-flex;
     flex-direction: column;
@@ -50,16 +49,38 @@
     text-align: right;
 }
 
-#side p {
-    display: block;
+#tweet {
+    width: 400px;
+    height: 152px;
+    padding-top: 8px;
+}
+
+#tweet-name {
+    font-size: 0.9em;
+}
+
+#tweet-body {
+    font-size: 0.8em;
+    margin-top: 0.4em;
+}
+
+#hashtag {
+    font-size: 3em;
+}
+
+.info {
     position: relative;
 }
 
 .label {
+    position: absolute;
     text-align: left;
+    bottom: 0px;
+    font-size: 2em;
 }
 
 #runner-info {
+    margin-top: auto;
     width: 100%;
 }
 
@@ -73,13 +94,13 @@
 }
 
 #time-info {
-    margin-top: auto;
+    margin-top: 16px;
     width: 100%;
     bottom: 0;
 }
 
 .time {
-    text-align: center;
+    text-align: right;
     border-bottom: 2px solid white;
 }
 
@@ -87,8 +108,8 @@
     font-size: 3.2em;
 }
 
-#est-label {
-    margin-top: 1em;
+#est-info {
+    margin-top: 16px;
 }
 
 #est {

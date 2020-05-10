@@ -70,39 +70,10 @@ function changeRunDatas(currentRun) {
 
 }
 
-// state: 'on' / 'off'
-function toggleTweet(state) {
-    console.log('#tweet-' + state);
-    let showed = state;
-    let hidden = (state == 'on') ? 'off' : 'on';
-    $('#tweet > div').animate({
-        'top': '-=10px',
-        'opacity': '0'
-    }, 600);
-    $('#tweet-' + showed).animate({
-        'top': '+=10px',
-        'opacity': '1'
-    }, 600, 'swing', () => {
-        $('#tweet-' + hidden).css({
-            'top': '+=10px'
-        });
-    });
-}
-
 currentRunData.on('change', changeRunDatas);
 runDatas.on('change', () => {
     currentRun = currentRunData.value;
     if (currentRun != undefined) {
         changeRunDatas(currentRun);
     }
-});
-
-var tw = 'off';
-$('#logo').click(() => {
-    if(tw == 'off') {
-        tw = 'on';
-    } else {
-        tw = 'off';
-    }
-    toggleTweet(tw);
 });

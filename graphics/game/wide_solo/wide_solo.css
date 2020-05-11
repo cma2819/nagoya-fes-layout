@@ -35,8 +35,8 @@
 
 #video-place {
     background-color: rgba(32, 64, 128, 50%);
-    height: calc(726px / 16 * 9);
-    width: 726px;
+    height: calc(784px / 16 * 9);
+    width: 784px;
 }
 
 #side {

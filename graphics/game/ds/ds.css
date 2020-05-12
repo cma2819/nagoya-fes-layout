@@ -1,5 +1,5 @@
 body {
-    padding: 16px 24px;
+    padding: 16px 32px;
 }
 
 #top {
@@ -29,9 +29,11 @@ body {
 #bottom {
     height: 544px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    position: relative;
 }
 
 #bottom > div {
@@ -44,37 +46,42 @@ body {
 }
 
 #video-place {
-    height: 544px;
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
 }
 
 #video-place-1 {
-    height: 380px;
-    width: calc(380px / 3 * 4);
+    height: 450px;
+    width: calc(450px / 3 * 4);
     margin-right: 8px;
 }
 
 #video-place-2 {
     height: 240px;
     width: calc(240px / 3 * 4);
-    margin-top: auto;
-}
-
-#side {
-    width: 380px;
-    height: 544px;
-    margin-left: auto;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: right;
 }
 
 #tweet {
     width: 380px;
     height: 168px;
-    padding-top: 8px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0px;
+}
+
+#side {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
+    margin-top: auto;
+}
+
+#side > * {
+    width: 380px;
 }
 
 #tweet-name {
@@ -101,11 +108,6 @@ body {
     font-size: 2em;
 }
 
-#runner-info {
-    margin-top: auto;
-    width: 100%;
-}
-
 #runner-name {
     font-size: 2em;
 }
@@ -117,8 +119,6 @@ body {
 }
 
 #time-info {
-    margin-top: 16px;
-    width: 100%;
     bottom: 0;
 }
 
@@ -129,10 +129,6 @@ body {
 
 #timer {
     font-size: 3.6em;
-}
-
-#est-info {
-    margin-top: 16px;
 }
 
 #est {

@@ -54,6 +54,11 @@
         "file": "game/wide_race/index.html",
         "width": 1280,
         "height": 720
+      },
+      {
+        "file": "game/narrow/index.html",
+        "width": 1280,
+        "height": 720
       }
     ],
     "mount": [

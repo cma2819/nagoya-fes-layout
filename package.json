@@ -41,6 +41,11 @@
         "height": 720
       },
       {
+        "file": "game/standard_race/index.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
         "file": "game/wide_solo/index.html",
         "width": 1280,
         "height": 720

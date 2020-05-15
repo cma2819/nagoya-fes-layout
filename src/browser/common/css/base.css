@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+body {
+    background-image:url("http://localhost:9090/bundles/nagoya/common/img/bg.png");
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin: 0;
+    padding: 16px 16px 0;
+}
+
+p {
+    margin: 0;
+}
+
+.time {
+    font-family: 'Gugi', cursive;
+}
+
+.stopped, .paused {
+    color: rgba(255, 255, 255, 60%);
+}
+
+.finished {
+    color: rgb(247, 255, 25);
+}

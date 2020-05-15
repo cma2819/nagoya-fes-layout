@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<style>
-		.monospace {
+	<style>.monospace {
 			font-family: monospace;
-		}
-	</style>
+		}</style>
 </head>
 <body>
 	<p>
@@ -26,12 +24,9 @@
 
 	<p>You've got this!</p>
 
-	<script>
-		document.getElementById('path').textContent = `nodecg${window.location.pathname}`;
+	<script>document.getElementById('path').textContent = "nodecg".concat(window.location.pathname); // You can access the NodeCG api anytime from the `window.nodecg` object
+// Or just `nodecg` for short. Like this!:
 
-		// You can access the NodeCG api anytime from the `window.nodecg` object
-		// Or just `nodecg` for short. Like this!:
-		nodecg.log.info('Here\'s an example of using NodeCG\'s logging API!');
-	</script>
+nodecg.log.info('Here\'s an example of using NodeCG\'s logging API!');</script>
 </body>
 </html>

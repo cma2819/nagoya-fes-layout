@@ -1,7 +1,15 @@
 const comment = nodecg.Replicant('comment');
 comment.on('change', function(comm) {
     console.log(comm);
-    $('#comment p').text(comm);
+    let commP = $('#comment p');
+    let commSpan = $('#comment span');
+
+    commSpan.removeAttr('style').text(comm);
+    let textWidth = parseInt(commSpan.css('width').replace('px', ''));
+    if (textWidth > 400) {
+        commP.css('width', textWidth + 'px');
+        commSpan.css('animation', 'marquee 20s linear infinite');
+    }
 });
 
 const runDatas = nodecg.Replicant('runDataArray', 'nodecg-speedcontrol');
@@ -29,7 +37,6 @@ function changeRunDatas(currentRun) {
             }
 
             target.find('.title span').removeAttr('style').text(run.game);
-            target.find('.title span');
             target.find('.category').text('Category: ' + run.category);
             target.find('.platform').text('Platform: ' + run.system)
             target.find('.runner').text('Runner: ' + run.teams.map(t => t.players[0].name).join(' vs. '));

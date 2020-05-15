@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 16px 64px 0;
+}
+
+#top {
+    width: auto;
+    margin-bottom: 16px;
+}
+
+#top * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#logo {
+    width: 128px;
+    margin-right: 24px;
+}
+
+#title {
+    font-size: 2.5em;
+}
+
+#category {
+    margin-top: -0.6em;
+    font-size: 1.5em;
+}
+
+#middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.video {
+    background-color: rgba(32, 64, 128, 50%);
+    height: calc(560px / 16 * 9);
+    width: 560px;
+}
+
+.info {
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    bottom: 0px;
+    font-size: 2em;
+}
+
+.runner {
+    width: 560px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid white;
+}
+
+#runner-info-1 {
+    flex-direction: row;
+}
+
+#runner-info-2 {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.runner .label {
+    font-size: 3em;
+    opacity: 30%;
+    bottom: unset;
+}
+
+#runner-info-1 .label {
+    right: 0px;
+}
+
+#runner-info-2 .label {
+    left: 0px;
+}
+
+.runner-name {
+    font-size: 1.8em;
+}
+
+.runner-id {
+    margin-top: -0.4em;
+}
+
+.runner .time {
+    margin-top: auto;
+    font-size: 2.5em;
+}
+
+#bottom {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#tweet {
+    width: 560px;
+}
+
+#bottom .time {
+    text-align: right;
+    border-bottom: 2px solid white;
+}
+
+#times {
+    margin-top: auto;
+    width: 560px;
+}
+
+#time-info {
+    width: 100%;
+    bottom: 0;
+}
+
+#timer {
+    font-size: 3.2em;
+}
+
+#est-info {
+    margin-top: 16px;
+}
+
+#est {
+    font-size: 2.4em;
+}

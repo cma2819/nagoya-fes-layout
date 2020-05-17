@@ -1,0 +1,136 @@
+body {
+    padding: 16px 32px;
+}
+
+#top {
+    width: auto;
+    margin-bottom: 16px;
+}
+
+#top * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#logo {
+    width: 128px;
+    margin-right: 24px;
+}
+
+#title {
+    font-size: 2.5em;
+}
+
+#category {
+    margin-top: -0.6em;
+    font-size: 1.5em;
+}
+
+#bottom {
+    height: 544px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+#bottom > div {
+    vertical-align: top;
+}
+
+.video {
+    background-color: rgba(32, 64, 128, 50%);
+    display: inline-block;
+}
+
+#video-place {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+#video-place-1 {
+    height: 450px;
+    width: calc(450px / 9 * 10);
+    margin-right: 8px;
+}
+
+#video-place-2 {
+    height: 240px;
+    width: calc(240px / 3 * 4);
+}
+
+#tweet {
+    width: 380px;
+    height: 168px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0px;
+}
+
+#side {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
+    margin-top: auto;
+}
+
+#side > * {
+    width: 380px;
+}
+
+#tweet-name {
+    font-size: 0.9em;
+}
+
+#tweet-body {
+    font-size: 0.8em;
+    margin-top: 0.4em;
+}
+
+#hashtag {
+    font-size: 3em;
+}
+
+.info {
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    text-align: left;
+    bottom: 0px;
+    font-size: 2em;
+}
+
+#runner-name {
+    font-size: 2em;
+}
+
+#runner-id {
+    font-size: 1.2em;
+    border-bottom: 2px solid white;
+    margin-top: -0.6em;
+}
+
+#time-info {
+    bottom: 0;
+}
+
+.time {
+    text-align: right;
+    border-bottom: 2px solid white;
+}
+
+#timer {
+    font-size: 3.6em;
+}
+
+#est {
+    font-size: 2.8em;
+}

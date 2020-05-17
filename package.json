@@ -64,6 +64,11 @@
         "file": "game/ds/index.html",
         "width": 1280,
         "height": 720
+      },
+      {
+        "file": "game/gb_with_cam/index.html",
+        "width": 1280,
+        "height": 720
       }
     ],
     "mount": [

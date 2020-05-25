@@ -55155,7 +55155,456 @@ render._withStripped = true
       
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"standby/main.vue":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/TwitterNotification/TwitterNotificationTweet.vue":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var vue_property_decorator_1 = require("vue-property-decorator");
+
+var TwitterNotificationTweet =
+/** @class */
+function (_super) {
+  __extends(TwitterNotificationTweet, _super);
+
+  function TwitterNotificationTweet() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  __decorate([vue_property_decorator_1.Prop(Object)], TwitterNotificationTweet.prototype, "tweet", void 0);
+
+  TwitterNotificationTweet = __decorate([vue_property_decorator_1.Component], TwitterNotificationTweet);
+  return TwitterNotificationTweet;
+}(vue_property_decorator_1.Vue);
+
+exports.default = TwitterNotificationTweet;
+        var $60bdaa = exports.default || module.exports;
+      
+      if (typeof $60bdaa === 'function') {
+        $60bdaa = $60bdaa.options;
+      }
+    
+        /* template */
+        Object.assign($60bdaa, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "tweet-on" } }, [
+    _c("div", { attrs: { id: "tweet-account" } }, [
+      _c("p", { attrs: { id: "tweet-name" } }, [
+        _vm._v("\n      " + _vm._s(_vm.tweet.screenName) + "\n    ")
+      ]),
+      _vm._v(" "),
+      _c("p", { attrs: { id: "tweet-id" } }, [
+        _vm._v("\n      @" + _vm._s(_vm.tweet.name) + "\n    ")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("p", { attrs: { id: "tweet-body" } }, [
+      _vm._v("\n    " + _vm._s(_vm.tweet.text) + "\n  ")
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-60bdaa",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$60bdaa', $60bdaa);
+          } else {
+            api.reload('$60bdaa', $60bdaa);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/TwitterNotification/TwitterNotificationHashtag.vue":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var vue_property_decorator_1 = require("vue-property-decorator");
+
+var TwitterNotificationHashtag =
+/** @class */
+function (_super) {
+  __extends(TwitterNotificationHashtag, _super);
+
+  function TwitterNotificationHashtag() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  __decorate([vue_property_decorator_1.Prop(Object)], TwitterNotificationHashtag.prototype, "tweet", void 0);
+
+  TwitterNotificationHashtag = __decorate([vue_property_decorator_1.Component], TwitterNotificationHashtag);
+  return TwitterNotificationHashtag;
+}(vue_property_decorator_1.Vue);
+
+exports.default = TwitterNotificationHashtag;
+        var $029e1f = exports.default || module.exports;
+      
+      if (typeof $029e1f === 'function') {
+        $029e1f = $029e1f.options;
+      }
+    
+        /* template */
+        Object.assign($029e1f, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "tweet-off" } }, [
+      _c("p", { attrs: { id: "tweet-with" } }, [
+        _vm._v("\n    Tweet with hashtag:\n  ")
+      ]),
+      _vm._v(" "),
+      _c("p", { attrs: { id: "hashtag" } }, [_vm._v("\n    #758RTA\n  ")])
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-029e1f",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$029e1f', $029e1f);
+          } else {
+            api.reload('$029e1f', $029e1f);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/TwitterNotification/TwitterNotification.vue":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* global nodecg */
+
+var vue_property_decorator_1 = require("vue-property-decorator");
+
+var TwitterNotificationTweet_vue_1 = __importDefault(require("./TwitterNotificationTweet.vue"));
+
+var TwitterNotificationHashtag_vue_1 = __importDefault(require("./TwitterNotificationHashtag.vue"));
+
+var TwitterNotification =
+/** @class */
+function (_super) {
+  __extends(TwitterNotification, _super);
+
+  function TwitterNotification() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.activeTweet = null;
+    return _this;
+  }
+
+  TwitterNotification.prototype.created = function () {
+    var _this = this;
+
+    nodecg.Replicant('activeTweet', 'nodecg-twitter-widget').on('change', function (newVal) {
+      _this.activeTweet = newVal;
+    });
+  };
+
+  TwitterNotification = __decorate([vue_property_decorator_1.Component({
+    components: {
+      TwitterNotificationTweet: TwitterNotificationTweet_vue_1.default,
+      TwitterNotificationHashtag: TwitterNotificationHashtag_vue_1.default
+    }
+  })], TwitterNotification);
+  return TwitterNotification;
+}(vue_property_decorator_1.Vue);
+
+exports.default = TwitterNotification;
+        var $e7532b = exports.default || module.exports;
+      
+      if (typeof $e7532b === 'function') {
+        $e7532b = $e7532b.options;
+      }
+    
+        /* template */
+        Object.assign($e7532b, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "tweet" } },
+    [
+      _c(
+        "div",
+        { style: { position: "absolute", left: "0px" } },
+        [
+          _c("transition", { attrs: { name: "icon", mode: "out-in" } }, [
+            _vm.activeTweet
+              ? _c(
+                  "div",
+                  { key: "profileIcon" },
+                  [
+                    _c(
+                      "v-avatar",
+                      { style: { margin: "8px" }, attrs: { size: "48px" } },
+                      [
+                        _vm.activeTweet
+                          ? _c("img", {
+                              attrs: { src: _vm.activeTweet.profileImageUrl }
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: { src: _vm.activeTweet.profileImageUrl }
+                        })
+                      ]
+                    )
+                  ],
+                  1
+                )
+              : _c(
+                  "div",
+                  { key: "twitterIcon" },
+                  [
+                    _c(
+                      "v-avatar",
+                      { attrs: { width: "64px", height: "64px" } },
+                      [
+                        _c("img", {
+                          attrs: { src: "twitter.4abbc4a6.svg" }
+                        })
+                      ]
+                    )
+                  ],
+                  1
+                )
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "transition",
+        { attrs: { name: "tweet", mode: "out-in" } },
+        [
+          _vm.activeTweet
+            ? _c("twitter-notification-tweet", {
+                attrs: { tweet: _vm.activeTweet }
+              })
+            : _c("twitter-notification-hashtag")
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-e7532b",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$e7532b', $e7532b);
+          } else {
+            api.reload('$e7532b', $e7532b);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","./TwitterNotificationTweet.vue":"components/TwitterNotification/TwitterNotificationTweet.vue","./TwitterNotificationHashtag.vue":"components/TwitterNotification/TwitterNotificationHashtag.vue","./..\\..\\..\\common\\img\\twitter.svg":[["twitter.4abbc4a6.svg","../common/img/twitter.svg"],"../common/img/twitter.svg"],"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"standby/main.vue":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -55215,6 +55664,8 @@ var OverlayBase_vue_1 = __importDefault(require("../OverlayBase.vue"));
 
 var SetupRunComponent_vue_1 = __importDefault(require("./components/SetupRunComponent.vue"));
 
+var TwitterNotification_vue_1 = __importDefault(require("../components/TwitterNotification/TwitterNotification.vue"));
+
 var App =
 /** @class */
 function (_super) {
@@ -55226,6 +55677,7 @@ function (_super) {
     _this.setupComment = '';
     _this.currentRunIndex = 0;
     _this.runArray = [];
+    _this.commentScroll = false;
     return _this;
   }
 
@@ -55266,10 +55718,22 @@ function (_super) {
     });
   };
 
+  App.prototype.updated = function () {
+    var commentElm = this.$refs['comment'];
+    console.log(commentElm.clientWidth);
+
+    if (commentElm.clientWidth > 400) {
+      this.commentScroll = true;
+    } else {
+      this.commentScroll = false;
+    }
+  };
+
   App = __decorate([vue_property_decorator_1.Component({
     components: {
       OverlayBase: OverlayBase_vue_1.default,
-      SetupRunComponent: SetupRunComponent_vue_1.default
+      SetupRunComponent: SetupRunComponent_vue_1.default,
+      TwitterNotification: TwitterNotification_vue_1.default
     }
   })], App);
   return App;
@@ -55291,15 +55755,30 @@ exports.default = App;
   return _c(
     "overlay-base",
     [
-      _c("div", { attrs: { id: "top" } }, [
-        _c("img", {
-          attrs: { id: "logo", src: "logo.ed5f3264.png" }
-        }),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "comment" } }, [
-          _c("p", [_vm._v(_vm._s(_vm.setupComment))])
-        ])
-      ]),
+      _c(
+        "div",
+        { attrs: { id: "top" } },
+        [
+          _c("img", {
+            attrs: { id: "logo", src: "logo.ed5f3264.png" }
+          }),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "comment" } }, [
+            _c("p", [
+              _c(
+                "span",
+                { ref: "comment", class: { scroll: _vm.commentScroll } },
+                [_vm._v(_vm._s(_vm.setupComment))]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("twitter-notification", {
+            style: { width: "580px", height: "140px" }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _vm._l(_vm.showRuns, function(run, index) {
         return _c("setup-run-component", {
@@ -55348,7 +55827,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","clone":"../../../node_modules/clone/clone.js","../OverlayBase.vue":"OverlayBase.vue","./components/SetupRunComponent.vue":"standby/components/SetupRunComponent.vue","./..\\..\\common\\img\\logo.png":[["logo.ed5f3264.png","../common/img/logo.png"],"../common/img/logo.png"],"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"standby/main.ts":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","clone":"../../../node_modules/clone/clone.js","../OverlayBase.vue":"OverlayBase.vue","./components/SetupRunComponent.vue":"standby/components/SetupRunComponent.vue","../components/TwitterNotification/TwitterNotification.vue":"components/TwitterNotification/TwitterNotification.vue","./..\\..\\common\\img\\logo.png":[["logo.ed5f3264.png","../common/img/logo.png"],"../common/img/logo.png"],"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"standby/main.ts":[function(require,module,exports) {
 "use strict";
 /* eslint no-new: off, @typescript-eslint/explicit-function-return-type: off */
 
@@ -55406,7 +55885,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65128" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51960" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

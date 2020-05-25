@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
 /* So the <v-app> always has a transparent background,
 otherwise it looks odd in the NodeCG dashboard panels. */
 .v-application {
@@ -4582,7 +4586,7 @@ html {
   color: white;
   font-family: "M PLUS Rounded 1c", sans-serif;
   margin: 0;
-  padding: 16px 16px 0;
+  padding: 16px 32px 0;
   width: 1280px;
   height: 720px;
   position: absolute;
@@ -4645,6 +4649,79 @@ html {
   margin-left: 200px;
   border-color: rgb(244, 40, 153);
 }
+#tweet-on[data-v-60bdaa] {
+  position: relative;
+  text-align: left;
+  font-family: "Kosugi Maru", sans-serif;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+}
+#tweet-account[data-v-60bdaa] {
+  flex-basis: 64px;
+  margin-left: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#tweet-account > *[data-v-60bdaa] {
+  vertical-align: middle;
+  margin-right: 16px;
+}
+#tweet-id[data-v-60bdaa] {
+  font-size: 0.8em;
+}
+#tweet-body[data-v-60bdaa] {
+  margin: auto 16px;
+  line-height: 1.2em;
+  font-size: 0.9em;
+}
+#tweet-off[data-v-029e1f] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: rgba(255, 255, 255, 70%);
+  text-align: left;
+}
+#tweet-with[data-v-029e1f] {
+  text-align: left;
+  margin-bottom: -0.4em;
+  font-size: 1.2em;
+}
+#hashtag[data-v-029e1f] {
+  font-size: 4em;
+  font-family: "Gugi", cursive;
+}
+.tweet-enter-active[data-v-e7532b],
+.tweet-leave-active[data-v-e7532b] {
+  transition: all 1s ease;
+}
+.tweet-enter[data-v-e7532b],
+.tweet-leave-to[data-v-e7532b] {
+  transform: translateX(10px);
+  opacity: 0;
+}
+.icon-enter-active[data-v-e7532b],
+.icon-leave-active[data-v-e7532b] {
+  transition: all 1s ease;
+}
+.icon-enter[data-v-e7532b],
+.icon-leave-to[data-v-e7532b] {
+  opacity: 0;
+}
+#tweet[data-v-e7532b] {
+  border-bottom: solid 4px rgb(29, 161, 242);
+  border-radius: 4px;
+  background-color: rgba(32, 64, 128, 50%);
+  text-align: center;
+  position: relative;
+}
+#tweet > img[data-v-e7532b] {
+  position: absolute;
+  left: 0px;
+  width: 64px;
+}
 body {
   padding-left: 32px;
   padding-right: 32px;
@@ -4672,10 +4749,14 @@ body {
 }
 
 #comment {
-  width: calc(600px);
+  width: 400px;
   font-size: 24px;
-  padding: 0 0.5em;
+  margin-right: 32px;
+  padding: 0 0.3em;
   border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
 }
 
 .game {
@@ -4743,6 +4824,11 @@ body {
 #next-game-3 {
   margin-left: 200px;
   border-color: rgb(244, 40, 153);
+}
+
+.scroll {
+  position: relative;
+  animation: marquee 20s linear infinite;
 }
 
 @keyframes marquee {

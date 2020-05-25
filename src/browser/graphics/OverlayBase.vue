@@ -15,7 +15,7 @@ html {
   color: white;
   font-family: "M PLUS Rounded 1c", sans-serif;
   margin: 0;
-  padding: 16px 16px 0;
+  padding: 16px 32px 0;
   width: 1280px;
   height: 720px;
   position: absolute;

@@ -6,6 +6,7 @@ import {
 import { ReplicantMap } from '../nodecg/replicants';
 import { SpeedcontrolReplicantMap } from '../nodecg/speedcontrol';
 import { SpeedcontrolAdditionsReplicantMap } from '../nodecg/speedcontrol-additions';
+import { TwitterWidgetReplicantMap } from '../nodecg/nodecg-twitter-widget';
 import { MessageMap } from '../nodecg/messages';
 
 type SpeedcontrolInstance = CreateNodecgInstance<
@@ -40,17 +41,36 @@ type AdditionsConstructor = CreateNodecgConstructor<
   true
 >
 
+type TwitterWidgetInstance = CreateNodecgInstance<
+  'nodecg-twitter-widget',
+  {},
+  TwitterWidgetReplicantMap,
+  {},
+  true
+>
+
+type TwitterWidgetConstructor = CreateNodecgConstructor<
+  'nodecg-twitter-widget',
+  {},
+  TwitterWidgetReplicantMap,
+  {},
+  true
+>
+
 declare global {
+
   const nodecg: CreateNodecgInstance<
     'nagoya-fes-layout',
     {},
     ReplicantMap,
     MessageMap
-  > & SpeedcontrolInstance & AdditionsInstance;
+  > & SpeedcontrolInstance & AdditionsInstance & TwitterWidgetInstance;
+
   const NodeCG: CreateNodecgConstructor<
     'nagoya-fes-layout',
     {},
     ReplicantMap,
     MessageMap
-  > & SpeedcontrolConstructor & AdditionsConstructor;
+  > & SpeedcontrolConstructor & AdditionsConstructor & TwitterWidgetConstructor;
+
 }

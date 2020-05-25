@@ -6,8 +6,14 @@
         src="../../common/img/logo.png"
       >
       <div id="comment">
-        <p>{{ setupComment }}</p>
+        <p>
+          <span
+            ref="comment"
+            :class="{scroll: commentScroll}"
+          >{{ setupComment }}</span>
+        </p>
       </div>
+      <twitter-notification :style="{width: '580px', height: '140px'}"></twitter-notification>
     </div>
 
     <setup-run-component
@@ -31,18 +37,20 @@ import { SpeedcontrolCurrentRunIndex } from '../../../nodecg/speedcontrol-additi
 
 import OverlayBase from '../OverlayBase.vue';
 import SetupRunComponent from './components/SetupRunComponent.vue';
+import TwitterNotification from '../components/TwitterNotification/TwitterNotification.vue';
 
 @Component({
   components: {
     OverlayBase,
-    SetupRunComponent
+    SetupRunComponent,
+    TwitterNotification
   }
 })
 export default class App extends Vue {
   setupComment: SetupComment = '';
   currentRunIndex: SpeedcontrolCurrentRunIndex = 0;
   runArray: RunDataArray = [];
-
+  commentScroll = false;
 
   get showRuns(): RunDataArray {
     return this.runArray.slice(this.currentRunIndex, this.currentRunIndex + 4);
@@ -68,6 +76,16 @@ export default class App extends Vue {
     nodecg.Replicant('runDataArray', 'nodecg-speedcontrol').on('change', (newVal) => {
       this.runArray = clone(newVal);
     });
+  }
+
+  updated(): void {
+    const commentElm = this.$refs['comment'] as HTMLElement;
+    console.log(commentElm.clientWidth);
+    if (commentElm.clientWidth > 400) {
+      this.commentScroll = true;
+    } else {
+      this.commentScroll = false;
+    }
   }
 }
 </script>
@@ -100,10 +118,14 @@ body {
 }
 
 #comment {
-  width: calc(600px);
+  width: 400px;
   font-size: 24px;
-  padding: 0 0.5em;
+  margin-right: 32px;
+  padding: 0 0.3em;
   border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
 }
 
 .game {
@@ -171,6 +193,11 @@ body {
 #next-game-3 {
   margin-left: 200px;
   border-color: rgb(244, 40, 153);
+}
+
+.scroll {
+  position: relative;
+  animation: marquee 20s linear infinite;
 }
 
 @keyframes marquee {

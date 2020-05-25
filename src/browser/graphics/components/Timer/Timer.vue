@@ -10,7 +10,7 @@
       <p
         id="timer"
         class="time"
-        :class="timeStatus"
+        :class="[timeStatus, {small}]"
       >
         {{ formattedTime }}
       </p>
@@ -25,6 +25,7 @@
       <p
         id="est"
         class="time"
+        :class="{small}"
       >
         {{ estimate }}
       </p>
@@ -65,6 +66,10 @@ p.label {
   font-size: 3.6em;
 }
 
+#timer.small {
+  font-size: 3.2em;
+}
+
 #est-info {
   margin-top: 16px;
   width: 100%;
@@ -77,6 +82,10 @@ p.label {
 #est {
   font-size: 2.8em;
 }
+
+#est.small {
+  font-size: 2.6em;
+}
 </style>
 
 <script lang="ts">
@@ -86,6 +95,9 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 export default class Timer extends Vue {
   @Prop(String)
   readonly timeStatus!: string;
+
+  @Prop(Boolean)
+  readonly small!: boolean;
 
   @Prop(String)
   readonly formattedTime!: string;

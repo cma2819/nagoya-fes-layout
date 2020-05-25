@@ -4616,38 +4616,49 @@ html {
   margin-top: -0.6em;
   font-size: 1.5em;
 }
-p.label[data-v-c3d540] {
+p.label[data-v-1415fa] {
   font-size: 2em;
   text-align: left;
 }
-.social-enter-active[data-v-c3d540] {
+.social-enter-active[data-v-1415fa] {
   transition: all 1s 0.5s;
 }
-.social-leave-active[data-v-c3d540] {
+.social-leave-active[data-v-1415fa] {
   transition: all 1s;
 }
-.social-enter[data-v-c3d540],
-.social-leave-to[data-v-c3d540] {
+.social-enter[data-v-1415fa],
+.social-leave-to[data-v-1415fa] {
   transform: translateX(-20px);
   opacity: 0;
 }
-#runner-info[data-v-c3d540] {
+#runner-info[data-v-1415fa] {
   width: 100%;
   display: flex;
-  align-items: flex-end;
   justify-content: space-between;
+  align-items: flex-end;
   border-bottom: 2px solid white;
 }
-#runner-name[data-v-c3d540] {
-  text-align: right;
+#runner-info.opposite[data-v-1415fa] {
+  flex-direction: row-reverse;
+}
+#runner-name[data-v-1415fa] {
+  text-align: left;
   font-size: 2em;
   margin-bottom: 0.2rem;
 }
-#runner-id[data-v-c3d540] {
+.opposite #runner-name[data-v-1415fa],
+.opposite #runner-id[data-v-1415fa] {
   text-align: right;
-  font-size: 1.2em;
+}
+#runner-id[data-v-1415fa] {
+  text-align: left;
   margin-top: -0.6em;
   margin-bottom: 0.2rem;
+  height: 24px;
+}
+.time[data-v-1415fa] {
+  font-size: 2.5em;
+  color: rgb(247, 255, 25);
 }
 p.label[data-v-48ff51] {
   font-size: 2em;
@@ -4768,21 +4779,11 @@ p.label[data-v-48ff51] {
   left: 0px;
   width: 64px;
 }
-#side[data-v-42e3e4] {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  width: 400px;
-}
-#side p[data-v-42e3e4] {
-  display: block;
-  position: relative;
-}
-.label[data-v-42e3e4] {
+.label[data-v-d1b849] {
   font-size: 1.2em;
   text-align: left;
 }
-#bottom[data-v-42e3e4] {
+#bottom[data-v-d1b849] {
   position: relative;
   height: 544px;
   width: 100%;
@@ -4790,8 +4791,8 @@ p.label[data-v-48ff51] {
   flex-direction: row;
   justify-content: flex-start;
 }
-#bottom > div[data-v-42e3e4] {
+#bottom > div[data-v-d1b849] {
   vertical-align: top;
 }
 
-/*# sourceMappingURL=main.b922bba2.css.map */
+/*# sourceMappingURL=main.1438af28.css.map */

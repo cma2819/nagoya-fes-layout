@@ -54817,7 +54817,7 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"OverlayBase.vue":[function(require,module,exports) {
+},{}],"components/ClippedCanvas/ClippedCanvas.vue":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -54861,9 +54861,167 @@ var __decorate = this && this.__decorate || function (decorators, target, key, d
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var vue_property_decorator_1 = require("vue-property-decorator");
+
+var ClippedCanvas =
+/** @class */
+function (_super) {
+  __extends(ClippedCanvas, _super);
+
+  function ClippedCanvas() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  ClippedCanvas.prototype.mounted = function () {
+    var _this = this;
+
+    var element = this.$el;
+    var ctx = element.getContext('2d');
+
+    if (ctx) {
+      this.ctx = ctx;
+    }
+
+    var background = new Image();
+    background.src = this.backgroundImage;
+    background.addEventListener('load', function () {
+      _this.draw(background);
+    });
+  };
+
+  ClippedCanvas.prototype.draw = function (bg) {
+    var _this = this;
+
+    var _a;
+
+    if (!this.ctx) {
+      return;
+    }
+
+    this.ctx.drawImage(bg, 0, 0);
+    this.ctx.globalCompositeOperation = 'xor';
+    (_a = this.clipPaths) === null || _a === void 0 ? void 0 : _a.forEach(function (clipPath) {
+      var _a;
+
+      (_a = _this.ctx) === null || _a === void 0 ? void 0 : _a.fillRect(clipPath.x, clipPath.y, clipPath.width, clipPath.height);
+    });
+  };
+
+  __decorate([vue_property_decorator_1.Prop(Array)], ClippedCanvas.prototype, "clipPaths", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(String)], ClippedCanvas.prototype, "backgroundImage", void 0);
+
+  ClippedCanvas = __decorate([vue_property_decorator_1.Component], ClippedCanvas);
+  return ClippedCanvas;
+}(vue_property_decorator_1.Vue);
+
+exports.default = ClippedCanvas;
+        var $2d9db2 = exports.default || module.exports;
+      
+      if (typeof $2d9db2 === 'function') {
+        $2d9db2 = $2d9db2.options;
+      }
+    
+        /* template */
+        Object.assign($2d9db2, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("canvas", {
+    style: {
+      position: "absolute",
+      top: 0,
+      left: 0
+    },
+    attrs: { width: "1280", height: "720" }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$2d9db2', $2d9db2);
+          } else {
+            api.reload('$2d9db2', $2d9db2);
+          }
+        }
+
+        
+      }
+    })();
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"RunOverlayBase.vue":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 /* global nodecg */
 
 var vue_property_decorator_1 = require("vue-property-decorator");
+
+var ClippedCanvas_vue_1 = __importDefault(require("./components/ClippedCanvas/ClippedCanvas.vue"));
 
 var OverlayBase =
 /** @class */
@@ -54887,34 +55045,84 @@ function (_super) {
     });
   };
 
-  OverlayBase = __decorate([vue_property_decorator_1.Component], OverlayBase);
+  __decorate([vue_property_decorator_1.Prop(Array)], OverlayBase.prototype, "clipPaths", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(Object)], OverlayBase.prototype, "runData", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(Array)], OverlayBase.prototype, "paddings", void 0);
+
+  OverlayBase = __decorate([vue_property_decorator_1.Component({
+    components: {
+      ClippedCanvas: ClippedCanvas_vue_1.default
+    }
+  })], OverlayBase);
   return OverlayBase;
 }(vue_property_decorator_1.Vue);
 
 exports.default = OverlayBase;
-        var $85a5aa = exports.default || module.exports;
+        var $485ef6 = exports.default || module.exports;
       
-      if (typeof $85a5aa === 'function') {
-        $85a5aa = $85a5aa.options;
+      if (typeof $485ef6 === 'function') {
+        $485ef6 = $485ef6.options;
       }
     
         /* template */
-        Object.assign($85a5aa, (function () {
+        Object.assign($485ef6, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      style: {
-        backgroundImage: "url(" + _vm.backgroundUri + ")",
-        backgroundSize: "cover"
-      },
-      attrs: { id: "root" }
-    },
-    [_vm._t("default")],
-    2
+    { attrs: { id: "root" } },
+    [
+      _vm.backgroundUri
+        ? _c("clipped-canvas", {
+            attrs: {
+              "clip-paths": _vm.clipPaths,
+              "background-image": _vm.backgroundUri
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          style: {
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            padding: _vm.paddings ? _vm.paddings.join(" ") : null
+          }
+        },
+        [
+          _c("div", { attrs: { id: "top" } }, [
+            _c("img", {
+              attrs: { id: "logo", src: "logo.ed5f3264.png" }
+            }),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "game-info" } }, [
+              _c("p", { attrs: { id: "title" } }, [
+                _vm._v("\n          " + _vm._s(_vm.runData.game) + "\n        ")
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("p", { attrs: { id: "category" } }, [
+                _vm._v(
+                  "\n          " + _vm._s(_vm.runData.category) + "\n        "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._t("default")
+        ],
+        2
+      )
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -54937,9 +55145,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$85a5aa', $85a5aa);
+            api.createRecord('$485ef6', $485ef6);
           } else {
-            api.reload('$85a5aa', $85a5aa);
+            api.reload('$485ef6', $485ef6);
           }
         }
 
@@ -54950,7 +55158,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"standby/components/SetupRunComponent.vue":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","./components/ClippedCanvas/ClippedCanvas.vue":"components/ClippedCanvas/ClippedCanvas.vue","./..\\common\\img\\logo.png":[["logo.ed5f3264.png","../common/img/logo.png"],"../common/img/logo.png"],"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Nameplate/RaceNameplate.vue":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -54997,56 +55205,38 @@ Object.defineProperty(exports, "__esModule", {
 
 var vue_property_decorator_1 = require("vue-property-decorator");
 
-var SetupRunComponent =
+var Nameplate =
 /** @class */
 function (_super) {
-  __extends(SetupRunComponent, _super);
+  __extends(Nameplate, _super);
 
-  function SetupRunComponent() {
+  function Nameplate() {
     return _super !== null && _super.apply(this, arguments) || this;
   }
 
-  Object.defineProperty(SetupRunComponent.prototype, "runnerText", {
-    get: function get() {
-      return this.setupRun.teams.flatMap(function (team) {
-        return team.players.map(function (player) {
-          return player.name;
-        });
-      }).join('/');
-    },
-    enumerable: true,
-    configurable: true
-  });
-  Object.defineProperty(SetupRunComponent.prototype, "upcomingTime", {
-    get: function get() {
-      return {
-        hours: Math.floor(this.upcomingTimeSeconds / 3600),
-        minutes: Math.floor(this.upcomingTimeSeconds / 60 % 60)
-      };
-    },
-    enumerable: true,
-    configurable: true
-  });
+  __decorate([vue_property_decorator_1.Prop(Number)], Nameplate.prototype, "displaySocial", void 0);
 
-  __decorate([vue_property_decorator_1.Prop(Object)], SetupRunComponent.prototype, "setupRun", void 0);
+  __decorate([vue_property_decorator_1.Prop(String)], Nameplate.prototype, "name", void 0);
 
-  __decorate([vue_property_decorator_1.Prop(Number)], SetupRunComponent.prototype, "index", void 0);
+  __decorate([vue_property_decorator_1.Prop(Object)], Nameplate.prototype, "social", void 0);
 
-  __decorate([vue_property_decorator_1.Prop(Number)], SetupRunComponent.prototype, "upcomingTimeSeconds", void 0);
+  __decorate([vue_property_decorator_1.Prop(Boolean)], Nameplate.prototype, "opposite", void 0);
 
-  SetupRunComponent = __decorate([vue_property_decorator_1.Component], SetupRunComponent);
-  return SetupRunComponent;
+  __decorate([vue_property_decorator_1.Prop(String)], Nameplate.prototype, "finishedTime", void 0);
+
+  Nameplate = __decorate([vue_property_decorator_1.Component], Nameplate);
+  return Nameplate;
 }(vue_property_decorator_1.Vue);
 
-exports.default = SetupRunComponent;
-        var $40104c = exports.default || module.exports;
+exports.default = Nameplate;
+        var $1415fa = exports.default || module.exports;
       
-      if (typeof $40104c === 'function') {
-        $40104c = $40104c.options;
+      if (typeof $1415fa === 'function') {
+        $1415fa = $1415fa.options;
       }
     
         /* template */
-        Object.assign($40104c, (function () {
+        Object.assign($1415fa, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -55054,70 +55244,61 @@ exports.default = SetupRunComponent;
   return _c(
     "div",
     {
-      staticClass: "game",
-      class: {
-        upcoming: _vm.index === 0,
-        next: _vm.index > 0
+      staticClass: "info",
+      class: { opposite: _vm.opposite },
+      style: {
+        display: "flex"
       },
-      attrs: {
-        id: _vm.index === 0 ? "upcoming-game" : "next-game-" + _vm.index
-      }
+      attrs: { id: "runner-info" }
     },
     [
-      _c("div", { staticClass: "text-datas" }, [
-        _c("p", { staticClass: "coming-time" }, [
-          _vm._v(
-            "\n      " +
-              _vm._s(
-                _vm.upcomingTimeSeconds === 0
-                  ? "このあとすぐ！"
-                  : "あと" +
-                      _vm.upcomingTime.hours +
-                      "時間" +
-                      _vm.upcomingTime.minutes +
-                      "分"
-              ) +
-              "\n    "
-          )
+      _c("div", [
+        _c("p", { attrs: { id: "runner-name" } }, [
+          _vm._v("\n      " + _vm._s(_vm.name) + "\n    ")
         ]),
         _vm._v(" "),
-        _c("p", { staticClass: "title" }, [
-          _c("span", [_vm._v(_vm._s(_vm.setupRun.game))])
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "category" }, [
-          _vm._v(
-            "\n      Category: " + _vm._s(_vm.setupRun.category) + "\n    "
-          )
-        ]),
-        _vm._v(" "),
-        _vm.index === 0
-          ? _c("div", [
-              _c("p", { staticClass: "platform" }, [
-                _vm._v(
-                  "\n        Platform: " +
-                    _vm._s(_vm.setupRun.system) +
-                    "\n      "
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "runner" }, [
-                _vm._v(
-                  "\n        Runner: " + _vm._s(_vm.runnerText) + "\n      "
-                )
-              ])
+        _c(
+          "p",
+          { attrs: { id: "runner-id" } },
+          [
+            _c("transition", { attrs: { name: "social", mode: "out-in" } }, [
+              _vm.displaySocial === 0 && _vm.social.twitch
+                ? _c("div", { key: "twitch" }, [
+                    _c("span", { staticClass: "icon" }, [
+                      _c("i", { staticClass: "fab fa-twitch" })
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(_vm.social.twitch))])
+                  ])
+                : _vm.displaySocial === 1 && _vm.social.nico
+                ? _c("div", { key: "nico" }, [
+                    _c("span", [_vm._v(_vm._s(_vm.social.nico))])
+                  ])
+                : _vm.displaySocial === 2 && _vm.social.youtube
+                ? _c("div", { key: "youtube" }, [
+                    _c("span", { staticClass: "icon" }, [
+                      _c("i", { staticClass: "fab fa-youtube" })
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(_vm.social.youtube))])
+                  ])
+                : _vm.displaySocial === 3 && _vm.social.twitter
+                ? _c("div", { key: "twitter" }, [
+                    _c("span", { staticClass: "icon" }, [
+                      _c("i", { staticClass: "fab fa-twitter" })
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(_vm.social.twitter))])
+                  ])
+                : _vm._e()
             ])
-          : _c("div", [
-              _c("p", { staticClass: "platform" }, [
-                _vm._v(
-                  "\n        Platform: " +
-                    _vm._s(_vm.setupRun.system) +
-                    " | Runner: " +
-                    _vm._s(_vm.runnerText) +
-                    "\n      "
-                )
-              ])
-            ])
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "time" }, [
+        _vm._v("\n    " + _vm._s(_vm.finishedTime) + "\n  ")
       ])
     ]
   )
@@ -55129,7 +55310,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-40104c",
+            _scopeId: "data-v-1415fa",
             functional: undefined
           };
         })());
@@ -55142,9 +55323,157 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$40104c', $40104c);
+            api.createRecord('$1415fa', $1415fa);
           } else {
-            api.reload('$40104c', $40104c);
+            api.reload('$1415fa', $1415fa);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Timer/Timer.vue":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var vue_property_decorator_1 = require("vue-property-decorator");
+
+var Timer =
+/** @class */
+function (_super) {
+  __extends(Timer, _super);
+
+  function Timer() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "timeStatus", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(Boolean)], Timer.prototype, "small", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "formattedTime", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "estimate", void 0);
+
+  Timer = __decorate([vue_property_decorator_1.Component], Timer);
+  return Timer;
+}(vue_property_decorator_1.Vue);
+
+exports.default = Timer;
+        var $48ff51 = exports.default || module.exports;
+      
+      if (typeof $48ff51 === 'function') {
+        $48ff51 = $48ff51.options;
+      }
+    
+        /* template */
+        Object.assign($48ff51, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { attrs: { id: "time-info" } }, [
+      _c("p", { staticClass: "label", attrs: { id: "timer-label" } }, [
+        _vm._v("\n      Time\n    ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass: "time",
+          class: [_vm.timeStatus, { small: _vm.small }],
+          attrs: { id: "timer" }
+        },
+        [_vm._v("\n      " + _vm._s(_vm.formattedTime) + "\n    ")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "est-info" } }, [
+      _c("p", { staticClass: "label", attrs: { id: "est-label" } }, [
+        _vm._v("\n      EST\n    ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass: "time",
+          class: { small: _vm.small },
+          attrs: { id: "est" }
+        },
+        [_vm._v("\n      " + _vm._s(_vm.estimate) + "\n    ")]
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-48ff51",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$48ff51', $48ff51);
+          } else {
+            api.reload('$48ff51', $48ff51);
           }
         }
 
@@ -55605,7 +55934,407 @@ render._withStripped = true
       
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","./TwitterNotificationTweet.vue":"components/TwitterNotification/TwitterNotificationTweet.vue","./TwitterNotificationHashtag.vue":"components/TwitterNotification/TwitterNotificationHashtag.vue","./..\\..\\..\\common\\img\\twitter.svg":[["twitter.4abbc4a6.svg","../common/img/twitter.svg"],"../common/img/twitter.svg"],"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"standby/main.vue":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","./TwitterNotificationTweet.vue":"components/TwitterNotification/TwitterNotificationTweet.vue","./TwitterNotificationHashtag.vue":"components/TwitterNotification/TwitterNotificationHashtag.vue","./..\\..\\..\\common\\img\\twitter.svg":[["twitter.4abbc4a6.svg","../common/img/twitter.svg"],"../common/img/twitter.svg"],"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"util.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.secondsToFormatted = function (base) {
+  var seconds = base % 60;
+  var minutes = Math.floor(base / 60) % 60;
+  var hours = Math.floor(base / 3600);
+  return "" + (hours ? hours + ':' : '') + minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+};
+
+exports.existsSocialIn = function (social) {
+  var TWITCH = 0;
+  var NICO = 1;
+  var YOUTUBE = 2;
+  var TWITTER = 3;
+  var exists = [];
+  social.twitch ? exists.push(TWITCH) : null;
+  social.nico ? exists.push(NICO) : null;
+  social.youtube ? exists.push(YOUTUBE) : null;
+  social.twitter ? exists.push(TWITTER) : null;
+  return exists;
+};
+},{}],"views/MultiRunViewComponent.vue":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* global nodecg */
+
+var vue_property_decorator_1 = require("vue-property-decorator");
+
+var clone_1 = __importDefault(require("clone"));
+
+var RunOverlayBase_vue_1 = __importDefault(require("../RunOverlayBase.vue"));
+
+var RaceNameplate_vue_1 = __importDefault(require("../components/Nameplate/RaceNameplate.vue"));
+
+var Timer_vue_1 = __importDefault(require("../components/Timer/Timer.vue"));
+
+var TwitterNotification_vue_1 = __importDefault(require("../components/TwitterNotification/TwitterNotification.vue"));
+
+var util_1 = require("../util");
+
+var MultiRunViewComponent =
+/** @class */
+function (_super) {
+  __extends(MultiRunViewComponent, _super);
+
+  function MultiRunViewComponent() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.currentIndex = 0;
+    _this.runDataArray = null;
+    _this.userAdditionArray = [];
+    _this.displaySocial = 0;
+    _this.speedcontrolTimer = null;
+    return _this;
+  }
+
+  Object.defineProperty(MultiRunViewComponent.prototype, "currentRun", {
+    get: function get() {
+      if (!this.runDataArray) {
+        return null;
+      }
+
+      return this.runDataArray[this.currentIndex];
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MultiRunViewComponent.prototype, "currentSocials", {
+    get: function get() {
+      var _this = this;
+
+      var _a;
+
+      var players = (_a = this.currentRun) === null || _a === void 0 ? void 0 : _a.teams.map(function (team) {
+        return team.players[0];
+      });
+
+      if (!players) {
+        return [];
+      }
+
+      return players.map(function (player) {
+        var additions = _this.userAdditionArray.find(function (addition) {
+          return addition.id === player.externalID;
+        });
+
+        if (additions) {
+          return Object.assign({}, additions.social, player.social);
+        }
+
+        return __assign({}, player.social);
+      });
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MultiRunViewComponent.prototype, "timer", {
+    get: function get() {
+      if (!this.speedcontrolTimer) {
+        return {
+          formattedTime: '00:00',
+          status: 'paused'
+        };
+      }
+
+      return {
+        formattedTime: this.speedcontrolTimer.time,
+        status: this.speedcontrolTimer.state
+      };
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MultiRunViewComponent.prototype, "finishedTime", {
+    get: function get() {
+      var _this = this;
+
+      var _a;
+
+      if (!((_a = this.currentRun) === null || _a === void 0 ? void 0 : _a.teams)) {
+        return [];
+      }
+
+      return this.currentRun.teams.map(function (team) {
+        var _a;
+
+        if (!_this.speedcontrolTimer) {
+          return null;
+        }
+
+        return ((_a = _this.speedcontrolTimer.teamFinishTimes[team.id]) === null || _a === void 0 ? void 0 : _a.time) || null;
+      });
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  MultiRunViewComponent.prototype.created = function () {
+    var _this = this;
+
+    nodecg.Replicant('speedcontrolCurrentRunIndex', 'speedcontrol-additions').on('change', function (newVal) {
+      _this.currentIndex = newVal;
+    });
+    nodecg.Replicant('runDataArray', 'nodecg-speedcontrol').on('change', function (newVal) {
+      _this.runDataArray = clone_1.default(newVal);
+    });
+    nodecg.Replicant('speedcontrolUserAdditionArray', 'speedcontrol-additions').on('change', function (newVal) {
+      _this.userAdditionArray = clone_1.default(newVal);
+    });
+    nodecg.Replicant('timer', 'nodecg-speedcontrol').on('change', function (newVal) {
+      _this.speedcontrolTimer = clone_1.default(newVal);
+    });
+  };
+
+  MultiRunViewComponent.prototype.mounted = function () {
+    var _this = this;
+
+    setInterval(function () {
+      var existsSocialNums = _this.currentSocials.map(function (social) {
+        return util_1.existsSocialIn(social);
+      }).flat().filter(function (num, idx, ary) {
+        return ary.indexOf(num) === idx;
+      });
+
+      _this.displaySocial = existsSocialNums[(_this.displaySocial + 1) % existsSocialNums.length];
+    }, 20 * 1000);
+  };
+
+  __decorate([vue_property_decorator_1.Prop(Array)], MultiRunViewComponent.prototype, "videoPaths", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(Array)], MultiRunViewComponent.prototype, "paddings", void 0);
+
+  MultiRunViewComponent = __decorate([vue_property_decorator_1.Component({
+    components: {
+      RunOverlayBase: RunOverlayBase_vue_1.default,
+      RaceNameplate: RaceNameplate_vue_1.default,
+      Timer: Timer_vue_1.default,
+      TwitterNotification: TwitterNotification_vue_1.default
+    }
+  })], MultiRunViewComponent);
+  return MultiRunViewComponent;
+}(vue_property_decorator_1.Vue);
+
+exports.default = MultiRunViewComponent;
+        var $d1b849 = exports.default || module.exports;
+      
+      if (typeof $d1b849 === 'function') {
+        $d1b849 = $d1b849.options;
+      }
+    
+        /* template */
+        Object.assign($d1b849, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.currentRun
+    ? _c(
+        "run-overlay-base",
+        {
+          attrs: {
+            "run-data": _vm.currentRun,
+            "clip-paths": _vm.videoPaths,
+            paddings: _vm.paddings
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "p1",
+              style: {
+                position: "absolute",
+                top: _vm.videoPaths[0].y + _vm.videoPaths[0].height + "px",
+                left: _vm.videoPaths[0].x + "px",
+                width: _vm.videoPaths[0].width + "px"
+              }
+            },
+            [
+              _vm.currentRun.teams[0]
+                ? _c("race-nameplate", {
+                    attrs: {
+                      name: _vm.currentRun.teams[0].players[0].name,
+                      social: _vm.currentSocials[0],
+                      "display-social": _vm.displaySocial,
+                      "finished-time": _vm.finishedTime[0]
+                    }
+                  })
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "p2",
+              style: {
+                position: "absolute",
+                top: _vm.videoPaths[1].y + _vm.videoPaths[1].height + "px",
+                left: _vm.videoPaths[1].x + "px",
+                width: _vm.videoPaths[1].width + "px"
+              }
+            },
+            [
+              _vm.currentRun.teams[1]
+                ? _c("race-nameplate", {
+                    attrs: {
+                      opposite: "",
+                      name: _vm.currentRun.teams[1].players[0].name,
+                      social: _vm.currentSocials[1],
+                      "display-social": _vm.displaySocial,
+                      "finished-time": _vm.finishedTime[1]
+                    }
+                  })
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              style: {
+                position: "relative",
+                display: "flex",
+                alignItems: "flex-end",
+                justifyContent: "space-between",
+                height: "544px"
+              }
+            },
+            [
+              _c("timer", {
+                style: { width: "560px" },
+                attrs: {
+                  small: "",
+                  "formatted-time": _vm.timer.formattedTime,
+                  "time-status": _vm.timer.status,
+                  estimate: _vm.currentRun.estimate
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                [
+                  _c("twitter-notification", {
+                    style: { width: "560px", height: "144px" },
+                    attrs: { "is-run-layout": "" }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ]
+      )
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-d1b849",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$d1b849', $d1b849);
+          } else {
+            api.reload('$d1b849', $d1b849);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","clone":"../../../node_modules/clone/clone.js","../RunOverlayBase.vue":"RunOverlayBase.vue","../components/Nameplate/RaceNameplate.vue":"components/Nameplate/RaceNameplate.vue","../components/Timer/Timer.vue":"components/Timer/Timer.vue","../components/TwitterNotification/TwitterNotification.vue":"components/TwitterNotification/TwitterNotification.vue","../util":"util.ts","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"wide_race/main.vue":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -55655,17 +56384,10 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-/* global nodecg */
 
 var vue_property_decorator_1 = require("vue-property-decorator");
 
-var clone_1 = __importDefault(require("clone"));
-
-var OverlayBase_vue_1 = __importDefault(require("../OverlayBase.vue"));
-
-var SetupRunComponent_vue_1 = __importDefault(require("./components/SetupRunComponent.vue"));
-
-var TwitterNotification_vue_1 = __importDefault(require("../components/TwitterNotification/TwitterNotification.vue"));
+var MultiRunViewComponent_vue_1 = __importDefault(require("../views/MultiRunViewComponent.vue"));
 
 var App =
 /** @class */
@@ -55673,126 +56395,39 @@ function (_super) {
   __extends(App, _super);
 
   function App() {
-    var _this = _super !== null && _super.apply(this, arguments) || this;
-
-    _this.setupComment = '';
-    _this.currentRunIndex = 0;
-    _this.runArray = [];
-    _this.commentScroll = false;
-    return _this;
+    return _super !== null && _super.apply(this, arguments) || this;
   }
-
-  Object.defineProperty(App.prototype, "showRuns", {
-    get: function get() {
-      return this.runArray.slice(this.currentRunIndex, this.currentRunIndex + 4);
-    },
-    enumerable: true,
-    configurable: true
-  });
-  Object.defineProperty(App.prototype, "upcomings", {
-    get: function get() {
-      var _this = this;
-
-      return this.showRuns.map(function (_, idx) {
-        return _this.showRuns.slice(0, idx).map(function (calcRun) {
-          return (calcRun.estimateS || 0) + (calcRun.setupTimeS || 0);
-        }).reduce(function (prev, current) {
-          return prev + current;
-        }, 0);
-      });
-    },
-    enumerable: true,
-    configurable: true
-  });
-
-  App.prototype.created = function () {
-    var _this = this;
-
-    nodecg.Replicant('setup-comment').on('change', function (newVal) {
-      _this.setupComment = newVal;
-    });
-    nodecg.Replicant('speedcontrolCurrentRunIndex', 'speedcontrol-additions').on('change', function (newVal) {
-      _this.currentRunIndex = newVal;
-    });
-    nodecg.Replicant('runDataArray', 'nodecg-speedcontrol').on('change', function (newVal) {
-      _this.runArray = clone_1.default(newVal);
-    });
-  };
-
-  App.prototype.updated = function () {
-    var commentElm = this.$refs['comment'];
-
-    if (commentElm.clientWidth > 400) {
-      this.commentScroll = true;
-    } else {
-      this.commentScroll = false;
-    }
-  };
 
   App = __decorate([vue_property_decorator_1.Component({
     components: {
-      OverlayBase: OverlayBase_vue_1.default,
-      SetupRunComponent: SetupRunComponent_vue_1.default,
-      TwitterNotification: TwitterNotification_vue_1.default
+      MultiRunViewComponent: MultiRunViewComponent_vue_1.default
     }
   })], App);
   return App;
 }(vue_property_decorator_1.Vue);
 
 exports.default = App;
-        var $d82265 = exports.default || module.exports;
+        var $cea607 = exports.default || module.exports;
       
-      if (typeof $d82265 === 'function') {
-        $d82265 = $d82265.options;
+      if (typeof $cea607 === 'function') {
+        $cea607 = $cea607.options;
       }
     
         /* template */
-        Object.assign($d82265, (function () {
+        Object.assign($cea607, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "overlay-base",
-    [
-      _c(
-        "div",
-        { attrs: { id: "top" } },
-        [
-          _c("img", {
-            attrs: { id: "logo", src: "logo.ed5f3264.png" }
-          }),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "comment" } }, [
-            _c("p", [
-              _c(
-                "span",
-                { ref: "comment", class: { scroll: _vm.commentScroll } },
-                [_vm._v(_vm._s(_vm.setupComment))]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("twitter-notification", {
-            style: { width: "580px", height: "140px" }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._l(_vm.showRuns, function(run, index) {
-        return _c("setup-run-component", {
-          key: index,
-          attrs: {
-            "setup-run": run,
-            index: index,
-            "upcoming-time-seconds": _vm.upcomings[index]
-          }
-        })
-      })
-    ],
-    2
-  )
+  return _c("multi-run-view-component", {
+    attrs: {
+      paddings: ["16px", "64px"],
+      "video-paths": [
+        { x: 64, y: 160, width: 560, height: 560 * (9 / 16) },
+        { x: 656, y: 160, width: 560, height: 560 * (9 / 16) }
+      ]
+    }
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -55814,20 +56449,16 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$d82265', $d82265);
+            api.createRecord('$cea607', $cea607);
           } else {
-            api.reload('$d82265', $d82265);
+            api.reload('$cea607', $cea607);
           }
         }
 
         
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","clone":"../../../node_modules/clone/clone.js","../OverlayBase.vue":"OverlayBase.vue","./components/SetupRunComponent.vue":"standby/components/SetupRunComponent.vue","../components/TwitterNotification/TwitterNotification.vue":"components/TwitterNotification/TwitterNotification.vue","./..\\..\\common\\img\\logo.png":[["logo.ed5f3264.png","../common/img/logo.png"],"../common/img/logo.png"],"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"standby/main.ts":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","../views/MultiRunViewComponent.vue":"views/MultiRunViewComponent.vue","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"wide_race/main.ts":[function(require,module,exports) {
 "use strict";
 /* eslint no-new: off, @typescript-eslint/explicit-function-return-type: off */
 
@@ -55857,7 +56488,7 @@ new vue_1.default({
     return h(main_vue_1.default);
   }
 });
-},{"vue":"../../../node_modules/vue/dist/vue.runtime.esm.js","../../plugin/store":"../plugin/store.ts","../../plugin/vuetify":"../plugin/vuetify.ts","./main.vue":"standby/main.vue"}],"../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../../../node_modules/vue/dist/vue.runtime.esm.js","../../plugin/store":"../plugin/store.ts","../../plugin/vuetify":"../plugin/vuetify.ts","./main.vue":"wide_race/main.vue"}],"../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -56061,5 +56692,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","standby/main.ts"], null)
-//# sourceMappingURL=main.71084492.js.map
+},{}]},{},["../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","wide_race/main.ts"], null)
+//# sourceMappingURL=main.1438af28.js.map

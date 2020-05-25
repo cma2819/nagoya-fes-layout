@@ -55389,6 +55389,8 @@ function (_super) {
 
   __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "timeStatus", void 0);
 
+  __decorate([vue_property_decorator_1.Prop(Boolean)], Timer.prototype, "small", void 0);
+
   __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "formattedTime", void 0);
 
   __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "estimate", void 0);
@@ -55418,7 +55420,11 @@ exports.default = Timer;
       _vm._v(" "),
       _c(
         "p",
-        { staticClass: "time", class: _vm.timeStatus, attrs: { id: "timer" } },
+        {
+          staticClass: "time",
+          class: [_vm.timeStatus, { small: _vm.small }],
+          attrs: { id: "timer" }
+        },
         [_vm._v("\n      " + _vm._s(_vm.formattedTime) + "\n    ")]
       )
     ]),
@@ -55428,9 +55434,15 @@ exports.default = Timer;
         _vm._v("\n      EST\n    ")
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "time", attrs: { id: "est" } }, [
-        _vm._v("\n      " + _vm._s(_vm.estimate) + "\n    ")
-      ])
+      _c(
+        "p",
+        {
+          staticClass: "time",
+          class: { small: _vm.small },
+          attrs: { id: "est" }
+        },
+        [_vm._v("\n      " + _vm._s(_vm.estimate) + "\n    ")]
+      )
     ])
   ])
 }
@@ -56418,7 +56430,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53244" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51843" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

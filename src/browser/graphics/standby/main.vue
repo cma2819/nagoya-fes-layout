@@ -80,7 +80,6 @@ export default class App extends Vue {
 
   updated(): void {
     const commentElm = this.$refs['comment'] as HTMLElement;
-    console.log(commentElm.clientWidth);
     if (commentElm.clientWidth > 400) {
       this.commentScroll = true;
     } else {

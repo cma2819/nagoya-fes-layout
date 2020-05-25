@@ -41,7 +41,10 @@
         v-if="activeTweet"
         :tweet="activeTweet"
       ></twitter-notification-tweet>
-      <twitter-notification-hashtag v-else></twitter-notification-hashtag>
+      <twitter-notification-hashtag
+        v-else
+        :is-run-layout="isRunLayout"
+      ></twitter-notification-hashtag>
     </transition>
   </div>
 </template>
@@ -85,7 +88,7 @@
 
 <script lang="ts">
 /* global nodecg */
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 import { ActiveTweet } from '../../../../nodecg/nodecg-twitter-widget';
 import TwitterNotificationTweet from './TwitterNotificationTweet.vue';
 import TwitterNotificationHashtag from './TwitterNotificationHashtag.vue';
@@ -97,6 +100,9 @@ import TwitterNotificationHashtag from './TwitterNotificationHashtag.vue';
   }
 })
 export default class TwitterNotification extends Vue {
+  @Prop(Boolean)
+  isRunLayout!: boolean;
+
   activeTweet: ActiveTweet = null;
 
   created(): void {

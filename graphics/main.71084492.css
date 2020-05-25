@@ -4693,6 +4693,9 @@ html {
   font-size: 4em;
   font-family: "Gugi", cursive;
 }
+#hashtag.run[data-v-029e1f] {
+  font-size: 3em;
+}
 .tweet-enter-active[data-v-e7532b],
 .tweet-leave-active[data-v-e7532b] {
   transition: all 1s ease;

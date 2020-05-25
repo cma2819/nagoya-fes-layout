@@ -3,7 +3,10 @@
     <p id="tweet-with">
       Tweet with hashtag:
     </p>
-    <p id="hashtag">
+    <p
+      id="hashtag"
+      :class="{run: isRunLayout}"
+    >
       #758RTA
     </p>
   </div>
@@ -29,6 +32,9 @@
   font-size: 4em;
   font-family: "Gugi", cursive;
 }
+#hashtag.run {
+  font-size: 3em;
+}
 </style>
 
 <script lang="ts">
@@ -38,6 +44,9 @@ import { ActiveTweet } from '../../../../nodecg/nodecg-twitter-widget';
 @Component
 export default class TwitterNotificationHashtag extends Vue {
   @Prop(Object)
-  tweet!: ActiveTweet
+  tweet!: ActiveTweet;
+
+  @Prop(Boolean)
+  isRunLayout!: boolean;
 }
 </script>

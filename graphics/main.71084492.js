@@ -55337,6 +55337,8 @@ function (_super) {
 
   __decorate([vue_property_decorator_1.Prop(Object)], TwitterNotificationHashtag.prototype, "tweet", void 0);
 
+  __decorate([vue_property_decorator_1.Prop(Boolean)], TwitterNotificationHashtag.prototype, "isRunLayout", void 0);
+
   TwitterNotificationHashtag = __decorate([vue_property_decorator_1.Component], TwitterNotificationHashtag);
   return TwitterNotificationHashtag;
 }(vue_property_decorator_1.Vue);
@@ -55354,22 +55356,17 @@ exports.default = TwitterNotificationHashtag;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "tweet-off" } }, [
-      _c("p", { attrs: { id: "tweet-with" } }, [
-        _vm._v("\n    Tweet with hashtag:\n  ")
-      ]),
-      _vm._v(" "),
-      _c("p", { attrs: { id: "hashtag" } }, [_vm._v("\n    #758RTA\n  ")])
+  return _c("div", { attrs: { id: "tweet-off" } }, [
+    _c("p", { attrs: { id: "tweet-with" } }, [
+      _vm._v("\n    Tweet with hashtag:\n  ")
+    ]),
+    _vm._v(" "),
+    _c("p", { class: { run: _vm.isRunLayout }, attrs: { id: "hashtag" } }, [
+      _vm._v("\n    #758RTA\n  ")
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -55480,6 +55477,8 @@ function (_super) {
     });
   };
 
+  __decorate([vue_property_decorator_1.Prop(Boolean)], TwitterNotification.prototype, "isRunLayout", void 0);
+
   TwitterNotification = __decorate([vue_property_decorator_1.Component({
     components: {
       TwitterNotificationTweet: TwitterNotificationTweet_vue_1.default,
@@ -55563,7 +55562,9 @@ exports.default = TwitterNotification;
             ? _c("twitter-notification-tweet", {
                 attrs: { tweet: _vm.activeTweet }
               })
-            : _c("twitter-notification-hashtag")
+            : _c("twitter-notification-hashtag", {
+                attrs: { "is-run-layout": _vm.isRunLayout }
+              })
         ],
         1
       )
@@ -55720,7 +55721,6 @@ function (_super) {
 
   App.prototype.updated = function () {
     var commentElm = this.$refs['comment'];
-    console.log(commentElm.clientWidth);
 
     if (commentElm.clientWidth > 400) {
       this.commentScroll = true;
@@ -55885,7 +55885,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51960" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53244" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

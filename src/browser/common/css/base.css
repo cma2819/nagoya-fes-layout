@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 
 body {
-    background-image:url("http://localhost:9090/bundles/nagoya/common/img/bg.png");
     color: white;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     margin: 0;
@@ -13,7 +12,7 @@ p {
     margin: 0;
 }
 
-.time {
+#hashtag, .time, .label {
     font-family: 'Gugi', cursive;
 }
 

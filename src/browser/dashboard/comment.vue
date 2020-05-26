@@ -2,7 +2,7 @@
   <v-app>
     <v-container class="pa-0 ma-0">
       <v-row justify="space-between">
-        <v-col cols="auto">
+        <v-col>
           <v-text-field
             v-model="setupComment"
             filled

@@ -4586,7 +4586,6 @@ html {
   color: white;
   font-family: "M PLUS Rounded 1c", sans-serif;
   margin: 0;
-  padding: 16px 32px 0;
   width: 1280px;
   height: 720px;
   position: absolute;
@@ -4607,6 +4606,10 @@ html {
 #logo {
   width: 128px;
   margin-right: 24px;
+}
+
+#logo.small {
+  width: 96px;
 }
 
 #title {
@@ -4676,6 +4679,9 @@ p.label[data-v-48ff51] {
 #timer[data-v-48ff51] {
   font-size: 3.6em;
 }
+#timer.small[data-v-48ff51] {
+  font-size: 3.2em;
+}
 #est-info[data-v-48ff51] {
   margin-top: 16px;
   width: 100%;
@@ -4686,6 +4692,9 @@ p.label[data-v-48ff51] {
 }
 #est[data-v-48ff51] {
   font-size: 2.8em;
+}
+#est.small[data-v-48ff51] {
+  font-size: 2.6em;
 }
 #tweet-on[data-v-60bdaa] {
   position: relative;
@@ -4765,8 +4774,8 @@ p.label[data-v-48ff51] {
 }
 #side[data-v-42e3e4] {
   position: absolute;
-  bottom: 16px;
-  right: 64px;
+  bottom: 0px;
+  right: 0px;
   width: 400px;
 }
 #side p[data-v-42e3e4] {

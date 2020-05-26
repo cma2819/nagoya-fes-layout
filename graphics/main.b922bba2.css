@@ -4608,6 +4608,10 @@ html {
   margin-right: 24px;
 }
 
+#logo.small {
+  width: 96px;
+}
+
 #title {
   font-size: 2.5em;
 }

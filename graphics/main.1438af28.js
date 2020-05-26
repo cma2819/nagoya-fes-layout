@@ -55051,6 +55051,8 @@ function (_super) {
 
   __decorate([vue_property_decorator_1.Prop(Array)], OverlayBase.prototype, "paddings", void 0);
 
+  __decorate([vue_property_decorator_1.Prop(Boolean)], OverlayBase.prototype, "small", void 0);
+
   OverlayBase = __decorate([vue_property_decorator_1.Component({
     components: {
       ClippedCanvas: ClippedCanvas_vue_1.default
@@ -55100,6 +55102,7 @@ exports.default = OverlayBase;
         [
           _c("div", { attrs: { id: "top" } }, [
             _c("img", {
+              class: { small: _vm.small },
               attrs: { id: "logo", src: "logo.ed5f3264.png" }
             }),
             _vm._v(" "),
@@ -55960,7 +55963,7 @@ exports.existsSocialIn = function (social) {
   social.twitter ? exists.push(TWITTER) : null;
   return exists;
 };
-},{}],"views/MultiRunViewComponent.vue":[function(require,module,exports) {
+},{}],"views/RaceViewComponent.vue":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -56042,12 +56045,12 @@ var TwitterNotification_vue_1 = __importDefault(require("../components/TwitterNo
 
 var util_1 = require("../util");
 
-var MultiRunViewComponent =
+var RaceViewComponent =
 /** @class */
 function (_super) {
-  __extends(MultiRunViewComponent, _super);
+  __extends(RaceViewComponent, _super);
 
-  function MultiRunViewComponent() {
+  function RaceViewComponent() {
     var _this = _super !== null && _super.apply(this, arguments) || this;
 
     _this.currentIndex = 0;
@@ -56058,7 +56061,7 @@ function (_super) {
     return _this;
   }
 
-  Object.defineProperty(MultiRunViewComponent.prototype, "currentRun", {
+  Object.defineProperty(RaceViewComponent.prototype, "currentRun", {
     get: function get() {
       if (!this.runDataArray) {
         return null;
@@ -56069,7 +56072,7 @@ function (_super) {
     enumerable: true,
     configurable: true
   });
-  Object.defineProperty(MultiRunViewComponent.prototype, "currentSocials", {
+  Object.defineProperty(RaceViewComponent.prototype, "currentSocials", {
     get: function get() {
       var _this = this;
 
@@ -56098,7 +56101,7 @@ function (_super) {
     enumerable: true,
     configurable: true
   });
-  Object.defineProperty(MultiRunViewComponent.prototype, "timer", {
+  Object.defineProperty(RaceViewComponent.prototype, "timer", {
     get: function get() {
       if (!this.speedcontrolTimer) {
         return {
@@ -56115,7 +56118,7 @@ function (_super) {
     enumerable: true,
     configurable: true
   });
-  Object.defineProperty(MultiRunViewComponent.prototype, "finishedTime", {
+  Object.defineProperty(RaceViewComponent.prototype, "finishedTime", {
     get: function get() {
       var _this = this;
 
@@ -56139,7 +56142,7 @@ function (_super) {
     configurable: true
   });
 
-  MultiRunViewComponent.prototype.created = function () {
+  RaceViewComponent.prototype.created = function () {
     var _this = this;
 
     nodecg.Replicant('speedcontrolCurrentRunIndex', 'speedcontrol-additions').on('change', function (newVal) {
@@ -56156,7 +56159,7 @@ function (_super) {
     });
   };
 
-  MultiRunViewComponent.prototype.mounted = function () {
+  RaceViewComponent.prototype.mounted = function () {
     var _this = this;
 
     setInterval(function () {
@@ -56170,30 +56173,32 @@ function (_super) {
     }, 20 * 1000);
   };
 
-  __decorate([vue_property_decorator_1.Prop(Array)], MultiRunViewComponent.prototype, "videoPaths", void 0);
+  __decorate([vue_property_decorator_1.Prop(Array)], RaceViewComponent.prototype, "videoPaths", void 0);
 
-  __decorate([vue_property_decorator_1.Prop(Array)], MultiRunViewComponent.prototype, "paddings", void 0);
+  __decorate([vue_property_decorator_1.Prop(Array)], RaceViewComponent.prototype, "paddings", void 0);
 
-  MultiRunViewComponent = __decorate([vue_property_decorator_1.Component({
+  __decorate([vue_property_decorator_1.Prop(Boolean)], RaceViewComponent.prototype, "small", void 0);
+
+  RaceViewComponent = __decorate([vue_property_decorator_1.Component({
     components: {
       RunOverlayBase: RunOverlayBase_vue_1.default,
       RaceNameplate: RaceNameplate_vue_1.default,
       Timer: Timer_vue_1.default,
       TwitterNotification: TwitterNotification_vue_1.default
     }
-  })], MultiRunViewComponent);
-  return MultiRunViewComponent;
+  })], RaceViewComponent);
+  return RaceViewComponent;
 }(vue_property_decorator_1.Vue);
 
-exports.default = MultiRunViewComponent;
-        var $d1b849 = exports.default || module.exports;
+exports.default = RaceViewComponent;
+        var $f56a89 = exports.default || module.exports;
       
-      if (typeof $d1b849 === 'function') {
-        $d1b849 = $d1b849.options;
+      if (typeof $f56a89 === 'function') {
+        $f56a89 = $f56a89.options;
       }
     
         /* template */
-        Object.assign($d1b849, (function () {
+        Object.assign($f56a89, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -56205,7 +56210,8 @@ exports.default = MultiRunViewComponent;
           attrs: {
             "run-data": _vm.currentRun,
             "clip-paths": _vm.videoPaths,
-            paddings: _vm.paddings
+            paddings: _vm.paddings,
+            small: _vm.small
           }
         },
         [
@@ -56266,11 +56272,10 @@ exports.default = MultiRunViewComponent;
             "div",
             {
               style: {
-                position: "relative",
                 display: "flex",
                 alignItems: "flex-end",
                 justifyContent: "space-between",
-                height: "544px"
+                height: _vm.videoPaths[0].height + 70 + 144 + "px"
               }
             },
             [
@@ -56308,7 +56313,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-d1b849",
+            _scopeId: "data-v-f56a89",
             functional: undefined
           };
         })());
@@ -56321,9 +56326,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$d1b849', $d1b849);
+            api.createRecord('$f56a89', $f56a89);
           } else {
-            api.reload('$d1b849', $d1b849);
+            api.reload('$f56a89', $f56a89);
           }
         }
 
@@ -56387,7 +56392,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var vue_property_decorator_1 = require("vue-property-decorator");
 
-var MultiRunViewComponent_vue_1 = __importDefault(require("../views/MultiRunViewComponent.vue"));
+var RaceViewComponent_vue_1 = __importDefault(require("../views/RaceViewComponent.vue"));
 
 var App =
 /** @class */
@@ -56400,7 +56405,7 @@ function (_super) {
 
   App = __decorate([vue_property_decorator_1.Component({
     components: {
-      MultiRunViewComponent: MultiRunViewComponent_vue_1.default
+      RaceViewComponent: RaceViewComponent_vue_1.default
     }
   })], App);
   return App;
@@ -56419,7 +56424,7 @@ exports.default = App;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("multi-run-view-component", {
+  return _c("race-view-component", {
     attrs: {
       paddings: ["16px", "64px"],
       "video-paths": [
@@ -56458,7 +56463,7 @@ render._withStripped = true
         
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","../views/MultiRunViewComponent.vue":"views/MultiRunViewComponent.vue","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"wide_race/main.ts":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","../views/RaceViewComponent.vue":"views/RaceViewComponent.vue","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"wide_race/main.ts":[function(require,module,exports) {
 "use strict";
 /* eslint no-new: off, @typescript-eslint/explicit-function-return-type: off */
 
@@ -56516,7 +56521,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51843" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58309" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -55051,6 +55051,8 @@ function (_super) {
 
   __decorate([vue_property_decorator_1.Prop(Array)], OverlayBase.prototype, "paddings", void 0);
 
+  __decorate([vue_property_decorator_1.Prop(Boolean)], OverlayBase.prototype, "small", void 0);
+
   OverlayBase = __decorate([vue_property_decorator_1.Component({
     components: {
       ClippedCanvas: ClippedCanvas_vue_1.default
@@ -55100,6 +55102,7 @@ exports.default = OverlayBase;
         [
           _c("div", { attrs: { id: "top" } }, [
             _c("img", {
+              class: { small: _vm.small },
               attrs: { id: "logo", src: "logo.ed5f3264.png" }
             }),
             _vm._v(" "),
@@ -56430,7 +56433,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51843" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58309" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

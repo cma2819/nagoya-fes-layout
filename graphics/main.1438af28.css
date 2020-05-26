@@ -4608,6 +4608,10 @@ html {
   margin-right: 24px;
 }
 
+#logo.small {
+  width: 96px;
+}
+
 #title {
   font-size: 2.5em;
 }
@@ -4779,11 +4783,11 @@ p.label[data-v-48ff51] {
   left: 0px;
   width: 64px;
 }
-.label[data-v-d1b849] {
+.label[data-v-f56a89] {
   font-size: 1.2em;
   text-align: left;
 }
-#bottom[data-v-d1b849] {
+#bottom[data-v-f56a89] {
   position: relative;
   height: 544px;
   width: 100%;
@@ -4791,7 +4795,7 @@ p.label[data-v-48ff51] {
   flex-direction: row;
   justify-content: flex-start;
 }
-#bottom > div[data-v-d1b849] {
+#bottom > div[data-v-f56a89] {
   vertical-align: top;
 }
 

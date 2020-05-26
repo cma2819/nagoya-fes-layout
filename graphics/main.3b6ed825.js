@@ -55049,6 +55049,10 @@ function (_super) {
 
   __decorate([vue_property_decorator_1.Prop(Object)], OverlayBase.prototype, "runData", void 0);
 
+  __decorate([vue_property_decorator_1.Prop(Array)], OverlayBase.prototype, "paddings", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(Boolean)], OverlayBase.prototype, "small", void 0);
+
   OverlayBase = __decorate([vue_property_decorator_1.Component({
     components: {
       ClippedCanvas: ClippedCanvas_vue_1.default
@@ -55092,12 +55096,13 @@ exports.default = OverlayBase;
             left: 0,
             width: "100%",
             height: "100%",
-            padding: "16px 64px"
+            padding: _vm.paddings ? _vm.paddings.join(" ") : null
           }
         },
         [
           _c("div", { attrs: { id: "top" } }, [
             _c("img", {
+              class: { small: _vm.small },
               attrs: { id: "logo", src: "logo.ed5f3264.png" }
             }),
             _vm._v(" "),
@@ -55387,6 +55392,8 @@ function (_super) {
 
   __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "timeStatus", void 0);
 
+  __decorate([vue_property_decorator_1.Prop(Boolean)], Timer.prototype, "small", void 0);
+
   __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "formattedTime", void 0);
 
   __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "estimate", void 0);
@@ -55416,7 +55423,11 @@ exports.default = Timer;
       _vm._v(" "),
       _c(
         "p",
-        { staticClass: "time", class: _vm.timeStatus, attrs: { id: "timer" } },
+        {
+          staticClass: "time",
+          class: [_vm.timeStatus, { small: _vm.small }],
+          attrs: { id: "timer" }
+        },
         [_vm._v("\n      " + _vm._s(_vm.formattedTime) + "\n    ")]
       )
     ]),
@@ -55426,9 +55437,15 @@ exports.default = Timer;
         _vm._v("\n      EST\n    ")
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "time", attrs: { id: "est" } }, [
-        _vm._v("\n      " + _vm._s(_vm.estimate) + "\n    ")
-      ])
+      _c(
+        "p",
+        {
+          staticClass: "time",
+          class: { small: _vm.small },
+          attrs: { id: "est" }
+        },
+        [_vm._v("\n      " + _vm._s(_vm.estimate) + "\n    ")]
+      )
     ])
   ])
 }
@@ -56115,7 +56132,9 @@ function (_super) {
     }, 20 * 1000);
   };
 
-  __decorate([vue_property_decorator_1.Prop(Object)], SingleRunViewComponent.prototype, "clipPath", void 0);
+  __decorate([vue_property_decorator_1.Prop(Object)], SingleRunViewComponent.prototype, "videoPath", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(Array)], SingleRunViewComponent.prototype, "paddings", void 0);
 
   SingleRunViewComponent = __decorate([vue_property_decorator_1.Component({
     components: {
@@ -56144,41 +56163,59 @@ exports.default = SingleRunViewComponent;
   return _vm.currentRun
     ? _c(
         "run-overlay-base",
-        { attrs: { "run-data": _vm.currentRun, "clip-paths": [_vm.clipPath] } },
+        {
+          attrs: {
+            "run-data": _vm.currentRun,
+            "clip-paths": [_vm.videoPath],
+            paddings: _vm.paddings
+          }
+        },
         [
           _c(
             "div",
-            { style: { position: "absolute", top: "160px", right: "64px" } },
+            {
+              style: {
+                position: "relative",
+                display: "flex",
+                justifyContent: "flex-end",
+                height: "544px"
+              }
+            },
             [
-              _c("twitter-notification", {
-                style: { width: "400px", height: "164px" },
-                attrs: { "is-run-layout": "" }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { attrs: { id: "side" } },
-            [
-              _c("nameplate", {
-                attrs: {
-                  name: _vm.currentRun.teams[0].players[0].name,
-                  social: _vm.currentSocial,
-                  "display-social": _vm.displaySocial
-                }
-              }),
+              _c(
+                "div",
+                [
+                  _c("twitter-notification", {
+                    style: { width: "400px", height: "164px" },
+                    attrs: { "is-run-layout": "" }
+                  })
+                ],
+                1
+              ),
               _vm._v(" "),
-              _c("timer", {
-                attrs: {
-                  "formatted-time": _vm.timer.formattedTime,
-                  "time-status": _vm.timer.status,
-                  estimate: _vm.currentRun.estimate
-                }
-              })
-            ],
-            1
+              _c(
+                "div",
+                { attrs: { id: "side" } },
+                [
+                  _c("nameplate", {
+                    attrs: {
+                      name: _vm.currentRun.teams[0].players[0].name,
+                      social: _vm.currentSocial,
+                      "display-social": _vm.displaySocial
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("timer", {
+                    attrs: {
+                      "formatted-time": _vm.timer.formattedTime,
+                      "time-status": _vm.timer.status,
+                      estimate: _vm.currentRun.estimate
+                    }
+                  })
+                ],
+                1
+              )
+            ]
           )
         ]
       )
@@ -56303,7 +56340,10 @@ exports.default = App;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("single-run-view-component", {
-    attrs: { "clip-path": { x: 64, y: 160, width: 544 * (4 / 3), height: 544 } }
+    attrs: {
+      paddings: ["16px", "64px"],
+      "video-path": { x: 64, y: 160, width: 544 * (4 / 3), height: 544 }
+    }
   })
 }
 var staticRenderFns = []
@@ -56393,7 +56433,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53244" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57655" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

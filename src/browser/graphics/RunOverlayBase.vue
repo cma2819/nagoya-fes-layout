@@ -9,6 +9,7 @@
       <div id="top">
         <img
           id="logo"
+          :class="{small}"
           src="../common/img/logo.png"
         >
         <div id="game-info">
@@ -55,6 +56,10 @@ html {
   margin-right: 24px;
 }
 
+#logo.small {
+  width: 96px;
+}
+
 #title {
   font-size: 2.5em;
 }
@@ -88,6 +93,9 @@ export default class OverlayBase extends Vue {
 
   @Prop(Array)
   readonly paddings!: string[];
+
+  @Prop(Boolean)
+  readonly small!: boolean;
 
   created(): void {
     nodecg.Replicant('assets:background').on('change', (newVal) => {

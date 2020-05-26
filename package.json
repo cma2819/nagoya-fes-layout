@@ -58,27 +58,27 @@
         "height": 720
       },
       {
+        "file": "standard_race/index.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
         "file": "wide_race/index.html",
         "width": 1280,
         "height": 720
       },
       {
-        "file": "game/standard_race/index.html",
+        "file": "narrow/index.html",
         "width": 1280,
         "height": 720
       },
       {
-        "file": "game/narrow/index.html",
+        "file": "ds/index.html",
         "width": 1280,
         "height": 720
       },
       {
-        "file": "game/ds/index.html",
-        "width": 1280,
-        "height": 720
-      },
-      {
-        "file": "game/gb_with_cam/index.html",
+        "file": "gb_with_cam/index.html",
         "width": 1280,
         "height": 720
       }

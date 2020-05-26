@@ -4,6 +4,7 @@
     :run-data="currentRun"
     :clip-paths="videoPaths"
     :paddings="paddings"
+    :small="small"
   >
     <div
       class="p1"
@@ -40,7 +41,8 @@
         :finished-time="finishedTime[1]"
       ></race-nameplate>
     </div>
-    <div :style="{position: 'relative', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', height: '544px'}">
+
+    <div :style="{display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', height: `${videoPaths[0].height + 70 + 144}px`}">
       <timer
         small
         :style="{width: '560px'}"
@@ -104,12 +106,15 @@ import { ClipPath } from '../components/ClippedCanvas/types';
     TwitterNotification
   }
 })
-export default class MultiRunViewComponent extends Vue {
+export default class RaceViewComponent extends Vue {
   @Prop(Array)
   readonly videoPaths!: ClipPath[];
 
   @Prop(Array)
   readonly paddings!: string[];
+
+  @Prop(Boolean)
+  readonly small!: boolean;
 
   currentIndex = 0;
   runDataArray: RunDataArray | null = null;

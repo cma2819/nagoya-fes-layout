@@ -2,10 +2,10 @@
   <div id="tweet-on">
     <div id="tweet-account">
       <p id="tweet-name">
-        {{ tweet.screenName }}
+        {{ tweet.name }}
       </p>
       <p id="tweet-id">
-        @{{ tweet.name }}
+        @{{ tweet.screenName }}
       </p>
     </div>
     <p id="tweet-body">

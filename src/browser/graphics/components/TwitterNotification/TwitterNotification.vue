@@ -13,10 +13,6 @@
             size="48px"
             :style="{margin: '8px'}"
           >
-            <img
-              v-if="activeTweet"
-              :src="activeTweet.profileImageUrl"
-            >
             <img :src="activeTweet.profileImageUrl">
           </v-avatar>
         </div>
